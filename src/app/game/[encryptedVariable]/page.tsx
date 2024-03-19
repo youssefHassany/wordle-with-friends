@@ -2,16 +2,12 @@
 import Board from "@/components/Board";
 import Keyboard from "@/components/Keyboard";
 import { useDecrypt } from "@/hooks/useDecrypt";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Game = ({ params }: { params: { encryptedVariable: string } }) => {
   const encryptedVariable = params.encryptedVariable;
-  const [rightAns, setRightAnswer] = useState<string | undefined>();
-
-  useEffect(() => {
-    const decrypted = useDecrypt(encryptedVariable);
-    setRightAnswer(decrypted);
-  }, [encryptedVariable]);
+  const decrypted = useDecrypt(encryptedVariable);
+  const [rightAns, setRightAnswer] = useState<string | undefined>(decrypted);
 
   return (
     <main>

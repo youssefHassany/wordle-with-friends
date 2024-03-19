@@ -6,16 +6,18 @@ import React, { useRef, useState } from "react";
 const MenuForm = () => {
   const [word, setWord] = useState("");
   const [copied, setCopied] = useState(false);
-  const encyptedWord = useRef("");
+  const encryptedWord = useRef("");
+  const encrypt = useEncrypt; // Assign the useEncrypt function directly
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    encyptedWord.current = useEncrypt(word);
+    // Call the encrypt function directly here
+    encryptedWord.current = encrypt(word);
 
-    //copy to clipboard
+    // Copy to clipboard
     navigator.clipboard.writeText(
-      `${window.location.href}game/${encyptedWord.current}`
+      `${window.location.href}game/${encryptedWord.current}`
     );
 
     setCopied(true);
