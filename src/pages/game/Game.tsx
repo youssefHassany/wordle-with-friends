@@ -6,13 +6,12 @@ import { useEffect, useState } from "react";
 
 const Game = () => {
   const { encryptedVariable } = useParams();
-  console.log(encryptedVariable);
   const [rightAns, setRightAnswer] = useState<string | undefined>();
 
   useEffect(() => {
     const decrypted = useDecrypt(encryptedVariable);
     setRightAnswer(decrypted);
-  }, []);
+  }, [encryptedVariable]);
 
   return (
     <main>
