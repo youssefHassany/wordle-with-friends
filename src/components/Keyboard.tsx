@@ -1,8 +1,10 @@
+"use client";
+
+import { RootState } from "@/state/store";
+import { nextTurn } from "@/state/turn/turnSlice";
+import { addLetter, deleteLast } from "@/state/word/currentWordSlicer";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../state/store";
-import { addLetter, deleteLast } from "../../state/word/currentWordSlicer";
-import { nextTurn } from "../../state/turn/turnSlice";
 
 interface Props {
   rightWord: string | undefined;
@@ -55,7 +57,7 @@ const Keyboard = ({ rightWord }: Props) => {
   }, [currentWord, dispatch]);
 
   return (
-    <section>
+    <section className="keyboard">
       <div>
         {row1.map((letter) => (
           <button key={letter} onClick={() => addNewLetter(letter)}>

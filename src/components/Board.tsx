@@ -1,7 +1,8 @@
+"use client";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "../../state/store";
 import Letter from "./Letter";
+import { RootState } from "@/state/store";
 
 interface Row {
   value: string;

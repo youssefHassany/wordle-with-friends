@@ -1,11 +1,11 @@
-import Board from "./Board";
-import Keyboard from "./Keyboard";
-import { useParams } from "react-router-dom";
-import { useDecrypt } from "../../hooks/useDecrypt";
+"use client";
+import Board from "@/components/Board";
+import Keyboard from "@/components/Keyboard";
+import { useDecrypt } from "@/hooks/useDecrypt";
 import { useEffect, useState } from "react";
 
-const Game = () => {
-  const { encryptedVariable } = useParams();
+const Game = ({ params }: { params: { encryptedVariable: string } }) => {
+  const encryptedVariable = params.encryptedVariable;
   const [rightAns, setRightAnswer] = useState<string | undefined>();
 
   useEffect(() => {

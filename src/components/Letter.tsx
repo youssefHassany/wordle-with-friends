@@ -1,7 +1,9 @@
+"use client";
+
+import { RootState } from "@/state/store";
+import { erase } from "@/state/word/currentWordSlicer";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../state/store";
-import { erase } from "../../state/word/currentWordSlicer";
 
 interface Props {
   idx: number;
