@@ -19,6 +19,7 @@ const Keyboard = ({ rightWord }: Props) => {
   const currentWord = useSelector(
     (state: RootState) => state.currentWord.value
   );
+  const turn = useSelector((state: RootState) => state.turn.value);
   const dispatch = useDispatch();
 
   const addNewLetter = (letter: string) => {
@@ -28,12 +29,22 @@ const Keyboard = ({ rightWord }: Props) => {
   };
 
   const checkWord = (curr: string) => {
+    // if the answer is right win the game
     if (curr === rightWord) {
       setTimeout(() => {
         alert("Right Answer");
       }, 100);
     }
+
+    // get to the next turm
     dispatch(nextTurn());
+
+    // if the last answer is wrong lose the game
+    if (curr !== rightWord && turn > 3) {
+      setTimeout(() => {
+        alert(`You Lost! Right Answer is ${rightWord}`);
+      }, 100);
+    }
   };
 
   useEffect(() => {

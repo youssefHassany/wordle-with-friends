@@ -1,5 +1,4 @@
 "use client";
-
 import { useEncrypt } from "@/hooks/useEncrypt";
 import React, { useRef, useState } from "react";
 
@@ -7,7 +6,7 @@ const MenuForm = () => {
   const [word, setWord] = useState("");
   const [copied, setCopied] = useState(false);
   const encryptedWord = useRef("");
-  const encrypt = useEncrypt; // Assign the useEncrypt function directly
+  const encrypt = useEncrypt; // Assign the useEncrypt custom hook directly to prevent calling it inside useEffect
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
